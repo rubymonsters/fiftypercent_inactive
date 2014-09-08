@@ -1,6 +1,8 @@
 Fiftyprocent::Application.routes.draw do
   get '/events' => 'events#index'
   get '/new' => 'events#new' 
+  post '/events' => 'events#create'
+  get '/events/:id' => 'events#show', :as => 'event'
   #resources :events
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

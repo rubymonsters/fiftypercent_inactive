@@ -21,9 +21,17 @@ class EventsControllerTest < ActionController::TestCase
 
   test "new renders a form" do
     get :new
-    #puts response.body
-    assert_select 'form' do
-      assert_select 'input'
+    # puts response.body
+    assert_select 'form[action=/events]' do
+      assert_select "input[name='event[name]']"
     end
+  end
+
+  test "should create event" do
+    Event.delete_all
+    post :create, event: {name: 'Some name'}
+    event = Event.first
+    assert_not_nil event
+    assert_equal 'Some name', event.name
   end
 end
