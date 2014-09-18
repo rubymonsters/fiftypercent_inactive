@@ -8,8 +8,8 @@ class EventsControllerTest < ActionController::TestCase
   test "index renders a list of events" do
     Event.create(name: "Froscon")
     get :index
-    assert_select 'ul' do
-      assert_select 'li', 'Froscon'
+    assert_select "ul" do
+      assert_select "li", "Froscon"
     end
   end
   
@@ -22,16 +22,21 @@ class EventsControllerTest < ActionController::TestCase
   test "new renders a form" do
     get :new
     # puts response.body
-    assert_select 'form[action=/events]' do
+    assert_select "form[action=/events]" do
       assert_select "input[name='event[name]']"
     end
   end
 
   test "should create event" do
     Event.delete_all
-    post :create, event: {name: 'Some name'}
+    post :create, event: {name: "Some name"}
     event = Event.first
     assert_not_nil event
-    assert_equal 'Some name', event.name
+    assert_equal "Some name", event.name
+  end
+
+  test "if post data is valid, new view is rendered" do
+    post :create, event: {name: "New View"}
+    assert_redirected_to event_path(assigns(:event))
   end
 end
