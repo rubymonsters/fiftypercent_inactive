@@ -58,5 +58,13 @@ class EventsControllerTest < ActionController::TestCase
 
   test "should display the :edit view for a specific event" do
     get :edit, :id => 1
+    assert_response :success
+    assert_not_nil assigns(:event)
+  end  
+
+  test "should display the edit form" do
+    get :edit, :id => 1
+    assert_select "form[action=/events/:id]" do
+      assert_select "input[name='event[name]']"
   end  
 end
