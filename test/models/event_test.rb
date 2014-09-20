@@ -8,13 +8,13 @@ class EventTest < ActiveSupport::TestCase
   end 
 
   test "should be valid if it has a name" do
-  	event = Event.new(name: "Froscon")
-  	assert event.valid?
-	end
+    event = Event.new(name: "Froscon")
+    assert event.valid?
+  end
 
-	test "should not be valid if it does not have a name" do
-  	event = Event.new(name: nil)
-  	assert event.invalid?
+  test "should not be valid if it does not have a name" do
+    event = Event.new(name: nil)
+    assert event.invalid?
   end
 end
 
