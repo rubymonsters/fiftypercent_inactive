@@ -27,8 +27,7 @@ class EventsControllerTest < ActionController::TestCase
     end
   end
 
-  test "should create event" do
-    Event.delete_all
+  test "should create an event if posted data is valid" do
     post :create, event: {name: "Some name"}
     event = Event.first
     assert_not_nil event
@@ -39,4 +38,21 @@ class EventsControllerTest < ActionController::TestCase
     post :create, event: {name: "New View"}
     assert_redirected_to event_path(assigns(:event))
   end
+
+  test "should redirect to the event show url if posted data is valid" do
+    post :create, event: { name: 'Some name' }
+    event = Event.first
+    assert_redirected_to controller: 'events', action: 'show', id: event.id
+  end  
+
+  test "should not create event if posted data is invalid" do
+    post :create, event: { name: '' }
+    event = Event.first
+    assert_nil event 
+  end
+
+  test "should display the :new view if posted data is invalid" do
+    post :create, event: { name: ''}
+    assert_template :new
+  end  
 end
