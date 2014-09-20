@@ -16,6 +16,10 @@ class EventsController < ApplicationController
       render :new
     end  
   end  
+
+  def edit
+    @event = Event.new
+  end  
   
   def event_params
     params.require(:event).permit(:name)

@@ -55,4 +55,8 @@ class EventsControllerTest < ActionController::TestCase
     post :create, event: { name: ''}
     assert_template :new
   end  
+
+  test "should display the :edit view for a specific event" do
+    get :edit, :id => 1
+  end  
 end
