@@ -1,28 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fiftyprocent is a Rails app designed to collect data about diversity ratios of speakers at events. 
 
-Things you may want to cover:
+* See the Gemfile for system dependencies
 
-* Ruby version
+* The app uses a sqlite3 database. Run 'rake db:create' to create the database then run rake db:migrate' to create the tables.
 
-* System dependencies
+* To run tests use 'rake test'
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
