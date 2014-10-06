@@ -4,7 +4,7 @@ class EventsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:events)
   end
-  
+
   test 'index renders a list of events' do
     Event.create(name: 'Froscon')
     get :index
@@ -12,7 +12,7 @@ class EventsControllerTest < ActionController::TestCase
       assert_select 'li', 'Froscon'
     end
   end
-  
+
   test 'displays a form for creating event' do
     get :new
     assert_response :success
@@ -21,9 +21,8 @@ class EventsControllerTest < ActionController::TestCase
 
   test 'new renders a form' do
     get :new
-    # puts response.body
     assert_select 'form[action=/events]' do
-      assert_select 'input[name='event[name]']'
+      assert_select "input[name='event[name]']"
     end
   end
 
@@ -57,14 +56,29 @@ class EventsControllerTest < ActionController::TestCase
   end  
 
   test 'should display the :edit view for a specific event' do
-    get :edit, :id => 1
+    Event.create!(:id => 3, :name => "arrrrcamp")
+    get :edit, :id => 3
     assert_response :success
     assert_not_nil assigns(:event)
   end  
 
   test 'should display the edit form' do
-    get :edit, :id => 1
-    assert_select 'form[action=/events/:id]' do
-      assert_select 'input[name='event[name]']'
-  end  
+    Event.create!(:id => 3, :name => "arrrrcamp")
+    get :edit, :id => 3
+    assert_select 'form[action=/events/3]' do
+      assert_select "input[name='event[name]']"
+    end  
+  end
+
+  test 'should delete an event' do
+    Event.create!(:id => 3, :name => "arrrrcamp")
+    delete :destroy, :id => 3
+    assert_nil Event.first 
+  end
+  
+  test 'should display the delete button' do
+    Event.create!(:id => 3, :name => "arrrrcamp")
+    get :show, :id => 3
+    assert_select 'a[href=/events/3]', "delete"
+  end
 end
