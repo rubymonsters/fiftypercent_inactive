@@ -57,14 +57,30 @@ class EventsControllerTest < ActionController::TestCase
   end  
 
   test "should display the :edit view for a specific event" do
+    Event.create!(name: "Froscon")
     get :edit, :id => 1
     assert_response :success
     assert_not_nil assigns(:event)
   end  
 
   test "should display the edit form" do
+    Event.create!(name: "Froscon")
     get :edit, :id => 1
-    assert_select "form[action=/events/:id]" do
+    puts response.body
+    assert_select "form[action=/events/1]" do
       assert_select "input[name='event[name]']"
-  end  
+    end
+  end
+
+  test 'should update event if posted data is valid' do
+    Event.create!(name: "Froscon")
+    put :update, id: 1, event: { name: "Some name" }
+    assert_redirected_to event_path(assigns(:event))
+  end
+
+  test 'should not update event if posted data is invalid' do 
+     Event.create!(name: "Froscon")
+     put :update, id: 1, event: { name: '' }
+     assert_template :edit
+  end
 end

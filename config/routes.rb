@@ -4,7 +4,7 @@ Fiftyprocent::Application.routes.draw do
   post '/events' => 'events#create'
   get '/events/:id' => 'events#show', :as => 'event'
   get '/events/:id/edit' => 'events#edit'
-
+  put '/events/:id/update' => 'events#update'
   
   #resources :events
   # The priority is based upon order of creation: first created -> highest priority.
