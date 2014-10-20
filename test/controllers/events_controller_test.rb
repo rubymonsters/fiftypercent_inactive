@@ -6,7 +6,7 @@ class EventsControllerTest < ActionController::TestCase
   end
   
   test "index renders a list of events" do
-    Event.create(name: "Froscon")
+    Event.create!(name: "Froscon")
     get :index
     assert_select "ul" do
       assert_select "li", "Froscon"
@@ -82,5 +82,17 @@ class EventsControllerTest < ActionController::TestCase
      Event.create!(name: "Froscon")
      put :update, id: 1, event: { name: '' }
      assert_template :edit
+  end
+
+  test 'should delete an event' do
+     Event.create!(:id => 3, :name => "arrrrcamp")
+     delete :destroy, :id => 3
+      assert_nil Event.first 
+  end
+
+  test 'should display the delete button' do
+    Event.create!(:id => 3, :name => "arrrrcamp")
+     get :show, :id => 3
+     assert_select 'a[href=/events/3]', "delete"
   end
 end
