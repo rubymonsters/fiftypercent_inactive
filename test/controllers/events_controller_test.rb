@@ -4,15 +4,9 @@ class EventsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:events)
   end
-<<<<<<< HEAD
-
-  test 'index renders a list of events' do
-    Event.create(name: 'Froscon')
-=======
   
   test "index renders a list of events" do
     Event.create!(name: "Froscon")
->>>>>>> 1-edit
     get :index
     assert_select 'ul' do
       assert_select 'li', 'Froscon'
@@ -68,7 +62,6 @@ class EventsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:event)
   end  
 
-<<<<<<< HEAD
   test 'should display the edit form' do
     Event.create!(:id => 3, :name => "arrrrcamp")
     get :edit, :id => 3
