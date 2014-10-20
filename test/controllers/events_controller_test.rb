@@ -4,9 +4,15 @@ class EventsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:events)
   end
+<<<<<<< HEAD
 
   test 'index renders a list of events' do
     Event.create(name: 'Froscon')
+=======
+  
+  test "index renders a list of events" do
+    Event.create!(name: "Froscon")
+>>>>>>> 1-edit
     get :index
     assert_select 'ul' do
       assert_select 'li', 'Froscon'
@@ -62,12 +68,25 @@ class EventsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:event)
   end  
 
+<<<<<<< HEAD
   test 'should display the edit form' do
     Event.create!(:id => 3, :name => "arrrrcamp")
     get :edit, :id => 3
     assert_select 'form[action=/events/3]' do
       assert_select "input[name='event[name]']"
     end  
+  end
+
+  test 'should update event if posted data is valid' do
+    Event.create!(name: "Froscon")
+    put :update, id: 1, event: { name: "Some name" }
+    assert_redirected_to event_path(assigns(:event))
+  end
+
+  test 'should not update event if posted data is invalid' do 
+     Event.create!(name: "Froscon")
+     put :update, id: 1, event: { name: '' }
+     assert_template :edit
   end
 
   test 'should delete an event' do
