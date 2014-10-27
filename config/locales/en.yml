@@ -21,4 +21,6 @@
 
 en:
   hello: "Hello world"
-  
+errors:
+  messages:
+    blank: "Needs to be entered."
