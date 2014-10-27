@@ -1,4 +1,10 @@
 <%= form_for @event do |f| %>
   <%= f.text_field :name %>
+  <%= f.text_field :location %>
+  <%= f.date_field :date %>
+  <%= f.text_field :organizer %>
+  <%= f.url_field :organizer_url %>
+  <%= f.number_field :number_of_women %>
+  <%= f.number_field :percentage_of_women %>
   <%= f.submit "Edit" %>
 <% end %>

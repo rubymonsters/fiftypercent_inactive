@@ -1,7 +1,31 @@
 <ul>
   <% @events.each do |event| %>
     <li>
-    <%= event.name %>
+      <%= event.name %>
     </li>
-  <% end %> 
+    <li>
+      <%= event.location %>
+    </li>
+    <li>
+      <%= event.date %>
+    </li>
+    <li>
+      <%= event.organizer %>
+    </li>
+    <li>
+      <%= event.organizer_url %>
+    </li>
+    <li>
+      <%= event.number_of_women %>
+    </li>
+    <li>
+      <%= event.percentage_of_women %>
+    </li>
+    <li>
+    <%= link_to "Click here", event_path(event.id) %>
+    </li>
+    <li>
+    <%= event_url(event.id) %>
+    </li>
+  <% end %>
 </ul>

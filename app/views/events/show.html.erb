@@ -1,1 +1,3 @@
+<% @events = Event.find(params[:id]) %>
+<%= @events.name %>
 <%= link_to "delete", @event, :method => :delete, :confirm => "are you sure?" %>

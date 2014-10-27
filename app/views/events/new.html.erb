@@ -1,6 +1,6 @@
 <% if @event.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+    <h2><%= pluralize(@event.errors.count, "error") %> prohibited this post from being saved:</h2>
  
     <ul>
     <% @event.errors.full_messages.each do |msg| %>
@@ -10,7 +10,23 @@
   </div>
 <% end %>
 
+
 <%= form_for @event do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit "Create" %>
+  <p><%= f.label :name %>:</p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.label :location %>:</p>
+  <p><%= f.text_field :location %></p>
+  <p><%= f.label :date %>:</p>
+  <p><%= f.date_field :date %></p>
+  <p><%= f.label :organizer %>:</p>
+  <p><%= f.text_field :organizer %></p>
+  <p><%= f.label :organizer_url %>:</p>
+  <p><%= f.url_field :organizer_url %></p>
+  <p><%= f.label :number_of_women %>:</p>
+  <p><%= f.number_field :number_of_women %></p>
+  <p><%= f.label :percentage_of_women%>:</p>
+  <p><%= f.number_field :percentage_of_women %></p>
+  <p><%= f.submit "Create" %></p>
 <% end %>
+
+
