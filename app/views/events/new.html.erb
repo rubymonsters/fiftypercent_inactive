@@ -11,6 +11,12 @@
 <% end %>
 
 <%= form_for @event do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit "Create" %>
+ <p> <%= f.label(:name) %> <%= f.text_field :name %> </p>
+ <p> <%= f.label(:location) %> <%= f.text_field :location %></p>
+ <p> <%= f.label(:date) %> <%= f.date_field :date %> </p>
+ <p> <%= f.label(:organizer_url) %> <%= f.url_field :organizer_url %> </p>
+ <p> <%= f.label(:number_of_women) %> <%= f.number_field :number_of_women %> </p>
+ <p> <%= f.label(:number_of_men) %> <%= f.number_field :number_of_men %> </p>
+ <p> <%= f.label(:organizer_name) %> <%= f.text_field :organizer_name %> </p>
+ <p> <%= f.submit "Create" %> </p>
 <% end %>
