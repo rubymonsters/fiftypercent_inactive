@@ -11,12 +11,12 @@
 <% end %>
 
 <%= simple_form_for @event do |f| %>
- <p> <%= f.input(:name) %> </p>
- <p> <%= f.input(:location) %> </p>
- <p> <%= f.label(:date) %> <%= f.date_field(:date) %> </p>
- <p> <%= f.input(:organizer_url) %> </p>
- <p> <%= f.input(:number_of_women) %> </p>
- <p> <%= f.input(:number_of_men) %> </p>
- <p> <%= f.input(:organizer_name) %> </p>
- <p> <%= f.button :submit %> </p>
+ <%= f.input(:name) %> 
+ <%= f.input(:location) %>
+ <%= f.label(:date) %> <%= f.date_field(:date) %>
+ <%= f.input(:organizer_url) %>
+ <%= f.input(:number_of_women) %>
+ <%= f.input(:number_of_men) %>
+ <%= f.input(:organizer_name) %>
+ <%= f.button :submit %>
 <% end %>
