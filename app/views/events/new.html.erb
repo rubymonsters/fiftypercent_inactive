@@ -10,13 +10,13 @@
   </div>
 <% end %>
 
-<%= form_for @event do |f| %>
- <p> <%= f.label(:name) %> <%= f.text_field :name %> </p>
- <p> <%= f.label(:location) %> <%= f.text_field :location %></p>
- <p> <%= f.label(:date) %> <%= f.date_field :date %> </p>
- <p> <%= f.label(:organizer_url) %> <%= f.url_field :organizer_url %> </p>
- <p> <%= f.label(:number_of_women) %> <%= f.number_field :number_of_women %> </p>
- <p> <%= f.label(:number_of_men) %> <%= f.number_field :number_of_men %> </p>
- <p> <%= f.label(:organizer_name) %> <%= f.text_field :organizer_name %> </p>
- <p> <%= f.submit "Create" %> </p>
+<%= simple_form_for @event do |f| %>
+ <p> <%= f.input(:name) %> </p>
+ <p> <%= f.input(:location) %> </p>
+ <p> <%= f.label(:date) %> <%= f.date_field(:date) %> </p>
+ <p> <%= f.input(:organizer_url) %> </p>
+ <p> <%= f.input(:number_of_women) %> </p>
+ <p> <%= f.input(:number_of_men) %> </p>
+ <p> <%= f.input(:organizer_name) %> </p>
+ <p> <%= f.button :submit %> </p>
 <% end %>
