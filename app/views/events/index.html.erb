@@ -1,17 +1,36 @@
 <% @events.each do |event| %>
-    <div class="row">
-        <div class="columns">
-            <ul>   
-                <li><%= event.name %></li>
-                <li><%= event.location %></li>
-                <li><%= event.date %></li>
-                <li><%= event.number_of_women %></li>
-                <li><%= event.number_of_men %></li>
-                <li><%= event.organizer_name %></li>
-                <li><%= event.organizer_url %></li>
-                <li><%= number_to_percentage(event.percent_women, precision: 0) %></li>
-                <li><%= link_to "Click here", event_path(event.id) %> </li>
-            </ul>
-        </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1><%= event.name %></h1>
     </div>
+  </div>  
+
+  <div class="row">
+    <div class="large-6 columns">
+      <p>
+      <%= link_to event.organizer_name, event.organizer_url %>
+      </p>
+      <p>
+      <%= event.location %>
+      </p>
+      <p>
+      <%= event.date %> 
+      </p>
+      <p>
+      <%= link_to "Click here", event_path(event.id) %>
+      </p>
+    </div>  
+    <div class="large-6 columns">
+      <p>
+      <%= event.number_of_women %>
+      </p>
+      <p>
+      <%= event.number_of_men %>
+      </p>
+
+      <p>
+      <%= number_to_percentage(event.percent_women, precision: 0) %>
+      </p>
+    </div>  
+  </div>
 <% end %> 
