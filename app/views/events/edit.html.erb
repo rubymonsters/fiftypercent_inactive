@@ -2,3 +2,5 @@
   <%= f.text_field :name %>
   <%= f.submit "Edit" %>
 <% end %>
+
+<%= link_to "delete", @event, :method => :delete, :confirm => "are you sure?" %>

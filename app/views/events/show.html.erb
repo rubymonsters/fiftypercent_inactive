@@ -1,24 +1,28 @@
-<h1><%= @event.name %></h1>
+<div class="row">
+  <div class="large-12 columns">
+    <h1><%= @event.name %></h1>
+  </div>
+</div>  
 
-<div>
-  <p>
+<div class="row">
+  <div class="large-6 columns">
+    <p>
     <%= link_to @event.organizer_name, @event.organizer_url %>
-  </p>
+    </p>
+    <p>
+    <%= @event.location %>
+    </p>
+    <p>
+    <%= @event.date %> 
+    </p>
+  </div>  
+  <div class="large-6 columns">
+    <p>
+    <%= @event.number_of_women %>
+    </p>
+    <p>
+    <%= @event.number_of_men %>
+    </p>
+  </div>  
 </div>
 
-<div>
-date, 
-location
-</div>
-
-<div>
-number_of_women, 
-number_of_men, 
-</div>
-
-
-
-
-
-
-<%= link_to "delete", @event, :method => :delete, :confirm => "are you sure?" %>
