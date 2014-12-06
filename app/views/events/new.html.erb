@@ -1,33 +1,10 @@
-<% content_for(:title, "New Event") %>
-<% if @event.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
- 
-    <ul>
-    <% @event.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+<h1>New event</h1>
+<%= render 'form'%>
 <% end %>
+<%= link_to 'Back', events_path %>
 
-<%= simple_form_for @event do |f| %>
-  <div class="row">
-    <div class="large-6 columns">
-      <%= f.input(:name) %>
-      <%= f.input(:location) %>
-      <%= f.label(:date) %> <%= f.date_field(:date) %>
-    </div>  
-    <div class="large-6 columns">
-      <%= f.input(:organizer_url) %>
-      <%= f.input(:number_of_women) %>
-      <%= f.input(:number_of_men) %>
-      <%= f.input(:organizer_name) %>
-    </div>  
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
-      <%= f.button :submit %>
-    </div>
-  </div>  
-<% end %>
+
+
+
+
+

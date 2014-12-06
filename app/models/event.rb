@@ -5,6 +5,6 @@ class Event < ActiveRecord::Base
   	 puts "SCHEISSE"
   	 puts "number_of_women #{number_of_women}"
   	 puts "number_of_men #{number_of_men}"
-  	 number_of_women.to_f / number_of_men.to_f * 100
+  	 number_of_women.to_f / (number_of_women + number_of_men).to_f * 100
   end	
 end
