@@ -5,7 +5,8 @@
     </div>
   </div>  
 
-  <div class="row">
+  
+    <div class="row">
     <div class="large-6 columns">
       <p>
       <%= link_to event.organizer_name, event.organizer_url %>
@@ -22,15 +23,15 @@
     </div>  
     <div class="large-6 columns">
       <p>
-      <%= event.number_of_women %>
+      <%= event.number_of_women %> Women
       </p>
       <p>
-      <%= event.number_of_men %>
+      <%= event.number_of_men %> Men
       </p>
 
       <p>
-      <%= number_to_percentage(event.percent_women, precision: 0) %>
+      <%= number_to_percentage(event.percent_women, precision: 0) %> Female Speakers
       </p>
     </div>  
   </div>
-<% end %> 
+<% end %>
