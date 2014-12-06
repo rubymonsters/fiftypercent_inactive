@@ -26,3 +26,12 @@
   </div>  
 </div>
 
+<div class = row>  
+  <div class="large-6 columns">
+  </div>
+  <div class="large-6 columns"> 
+    <%= link_to ('<i class="fa fa-trash fa-2x"></i>').html_safe, @event, :method => :delete, :confirm => "are you sure?" %>
+  
+    <%= link_to ('<i class="fa fa-pencil fa-2x"></i>').html_safe, edit_event_path(@event) %>
+  </div> 
+</div>
