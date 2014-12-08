@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require d3/d3.js
+//= require d3pie/d3pie/d3pie.js
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
