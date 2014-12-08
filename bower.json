@@ -1,0 +1,12 @@
+{
+  "name": "fiftyprocent",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rubymonsters/fiftyprocent",
+  "authors": [
+    "Katalinka <katja.gimpel@gmx.de>"
+  ],
+  "dependencies": {
+    "d3pie": "benkeen/d3pie#0.1.4"
+  },
+  "license": "MIT"
+}
