@@ -38,6 +38,8 @@
 <script>
 $(document).ready(function() {
   $(".chart").each(function() {
+    var height = $(this).height();
+    var width = $(this).width();
     var pie = new d3pie(this, { 
       "data": {
         "content": [
@@ -52,6 +54,16 @@ $(document).ready(function() {
             "color": "#00ffb3"
           } 
         ]
+      },
+      "size": {
+        "canvasHeight": height,
+        "canvasWidth": width
+      },
+      "labels" : {
+        "outer" : {
+          "format": "none",
+          "pieDistance" : 0
+        }
       }
     });
   });   

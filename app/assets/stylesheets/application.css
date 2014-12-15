@@ -13,3 +13,10 @@
 
  *= require_tree .
  */
+
+.chart {
+  background-color: papayawhip;
+  width: 120px;
+  height: 120px;
+
+}
