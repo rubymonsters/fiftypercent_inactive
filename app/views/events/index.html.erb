@@ -29,9 +29,34 @@
       <%= event.number_of_men %> Men
       </p>
 
-      <p>
-      <%= number_to_percentage(event.percent_women, precision: 0) %> Female Speakers
-      </p>
+      <div class="chart" data-men="<%= event.number_of_men %>" data-women="<%= event.number_of_women %>"></div>
     </div>  
   </div>
 <% end %>
+
+<% content_for(:js) do %>
+<script>
+$(document).ready(function() {
+  $(".chart").each(function() {
+    var pie = new d3pie(this, { 
+      "data": {
+        "content": [
+          {
+            "label": "Men",
+            "value": $(this).data("men"),
+            "color": "#fa0"
+          },
+          {
+            "label": "Women",
+            "value": $(this).data("women"),
+            "color": "#00ffb3"
+          } 
+        ]
+      }
+    });
+  });   
+});
+</script>
+<% end %>
+
+
