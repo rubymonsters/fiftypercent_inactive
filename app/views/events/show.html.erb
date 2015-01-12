@@ -15,6 +15,9 @@
     <p>
     <%= @event.date %> 
     </p>
+    <div id="myPie">
+
+    </div>
   </div>  
   <div class="large-6 columns">
     <p>
@@ -23,43 +26,45 @@
     <p>
     <%= @event.number_of_men %> Men
     </p>
+    <p>
+      <%= link_to ('<i class="fa fa-trash fa-2x"></i>').html_safe, @event, :method => :delete, :confirm => "are you sure?" %>
+  
+      <%= link_to ('<i class="fa fa-pencil fa-2x"></i>').html_safe, edit_event_path(@event) %>
+    </p>  
   </div>  
 </div>
 
-<div class = row>  
-  <div class="large-6 columns">
-  </div>
-  <div class="large-6 columns"> 
-    <%= link_to ('<i class="fa fa-trash fa-2x"></i>').html_safe, @event, :method => :delete, :confirm => "are you sure?" %>
-  
-    <%= link_to ('<i class="fa fa-pencil fa-2x"></i>').html_safe, edit_event_path(@event) %>
-  </div> 
-</div>
 
 
- <div id="myPie"></div>
+
  <% content_for(:js) do %>
  <script>
- $(document).ready(
-  function() {
-    var pie = new d3pie("myPie", { 
-      "data": {
-        "content": [
+ $(document).ready(function() {
+  $("#myPie").width();
+  var pie_div = $("#myPie");
+  var width = pie_div.width();
+
+  var pie = new d3pie(pie_div[0], { 
+    "data": {
+      "content": [
         {
-        "label": "Men",
-        "value": <%= @event.number_of_men %>,
-        "color": "#fa0"
+          "label": "Men",
+          "value": <%= @event.number_of_men %>,
+          "color": "hsla(40, 98%, 49%, 1)"
         },
         {
-        "label": "Women",
-        "value": <%= @event.number_of_women %>,
-        "color": "#00ffb3"
+          "label": "Women",
+          "value": <%= @event.number_of_women %>,
+          "color": "hsla(180, 65%, 57%, 1)"
         } 
       ]
+    },
+    "size": {
+      "canvasHeight": width,
+      "canvasWidth": width
     }
   });
-  }
-  );
+});
 </script>
 <% end %>
 
