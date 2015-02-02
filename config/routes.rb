@@ -9,6 +9,7 @@ Fiftyprocent::Application.routes.draw do
   # delete '/events/:id' => 'events#destroy'
 
   resources :events
+  resources :tags
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
