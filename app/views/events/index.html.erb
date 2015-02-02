@@ -28,6 +28,9 @@
       <p>
       <%= event.number_of_men %> Men
       </p>
+      <p>
+        <%= event.formatted_tags %>
+      </p>  
 
       <div class="chart" data-men="<%= event.number_of_men %>" data-women="<%= event.number_of_women %>"></div>
     </div>  

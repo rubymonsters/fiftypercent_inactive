@@ -7,5 +7,9 @@ class Event < ActiveRecord::Base
   def percent_women
   	 #puts "SCHEISSE"
   	 number_of_women.to_f / (number_of_women + number_of_men).to_f * 100
+  end
+
+  def formatted_tags
+  	tags.map {|tag| "#" + tag.name}.join(", ")
   end	
 end
