@@ -1,4 +1,9 @@
 class TagsController < ApplicationController
+
+  def index
+    @tags = Tag.all
+  end
+
 	def show
 		@tag =Tag.find_by!(slug: params[:id])
 	end	
@@ -14,6 +19,19 @@ class TagsController < ApplicationController
       redirect_to @tag
     else
       render :new
+    end
+  end
+
+  def edit
+    @tag = Tag.find_by!(slug: params[:id])
+  end
+
+  def update
+    @tag = Tag.find_by!(slug: params[:id])
+    if @tag.update(tag_params)
+      redirect_to @tag
+    else 
+      render :edit
     end
   end
 
