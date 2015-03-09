@@ -35,6 +35,12 @@ class TagsController < ApplicationController
     end
   end
 
+  def destroy
+    @tag = Tag.find_by!(slug: params[:id])
+    @tag.destroy
+    redirect_to :action => "index"
+  end
+
   def tag_params
     params.require(:tag).permit(:name, :description, :slug)
   end

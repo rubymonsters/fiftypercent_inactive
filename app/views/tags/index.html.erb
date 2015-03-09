@@ -5,11 +5,17 @@
    
     <% @tags.each do |tag| %>
         <div class="row">
-          <div class="large-6 column"> <%= tag.name %> </div>
-          <div class="large-6 column"> <%= tag.description %> </div>
+          <div class="large-6 column"> <%= link_to tag.name, tag_path(tag) %> </div>
+          <div class="large-6 column"> <%= tag.description %> 
+            <%= link_to ('<i class="fa fa-trash fa-2x"></i>').html_safe, tag, :method => :delete, :confirm => "are you sure?" %>
+            <%= link_to ('<i class="fa fa-pencil fa-2x"></i>').html_safe, edit_tag_path(tag) %></div>
         </div>
     <% end %>
        
+<p>
+      
+    </p>  
+
 
   </div>
 </div>  
