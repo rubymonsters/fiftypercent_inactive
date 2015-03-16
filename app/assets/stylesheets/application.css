@@ -20,3 +20,17 @@
   height: 120px;
 
 }
+
+.event-name {
+	font-size: 2rem;
+}
+
+.event-data p {
+	line-height: 1;
+	margin-bottom: 1rem;
+}
+
+div.event-header {
+	border-top: 1px dashed grey;
+	margin-top: 2rem;
+}

@@ -11,14 +11,14 @@
 </div>  
 
 <% @events.each do |event| %>
-  <div class="row">
+  <div class="row event-header">
     <div class="large-12 columns">
-      <h2><%= event.name %></h2>
+      <h2 class="event-name"><%= event.name %></h2>
     </div>
   </div>  
 
   
-    <div class="row">
+  <div class="row event-data">
     <div class="large-6 columns">
       <p>
       <%= link_to event.organizer_name, event.organizer_url %>
