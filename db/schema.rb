@@ -13,17 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20150323190807) do
 
-  create_table "events", force: true do |t|
-    t.string  "name"
-    t.string  "location"
+  create_table "events", force: :cascade do |t|
+    t.string  "name",            limit: 255
+    t.string  "location",        limit: 255
     t.date    "date"
-    t.integer "number_of_women", default: 0
-    t.integer "number_of_men",   default: 0
-    t.string  "organizer_name"
-    t.string  "organizer_url"
+    t.integer "number_of_women",             default: 0
+    t.integer "number_of_men",               default: 0
+    t.string  "organizer_name",  limit: 255
+    t.string  "organizer_url",   limit: 255
   end
 
-  create_table "taggings", force: true do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "event_id"
     t.datetime "created_at", null: false
@@ -33,15 +33,15 @@ ActiveRecord::Schema.define(version: 20150323190807) do
   add_index "taggings", ["event_id"], name: "index_taggings_on_event_id"
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
 
-  create_table "tags", force: true do |t|
-    t.string   "name",        null: false
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",        limit: 255, null: false
     t.text     "description"
-    t.string   "slug",        null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "slug",        limit: 255, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "email",                          null: false
