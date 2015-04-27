@@ -1,6 +1,6 @@
 == README
 
-Fiftyprocent is a Rails app designed to collect data about diversity ratios of speakers at events. 
+Fiftypercent is a Rails app designed to collect data about diversity ratios of speakers at events. 
 
 * See the Gemfile for system dependencies
 
