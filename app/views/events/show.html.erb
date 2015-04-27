@@ -33,14 +33,12 @@
     <%= @event.number_of_men %> Men
     </p>
     <p>
-      <%= link_to ('<i class="fa fa-trash fa-2x"></i>').html_safe, @event, :method => :delete, :confirm => "are you sure?" %>
+      <%= link_to ('<i class="fa fa-trash fa-2x"></i>').html_safe, @event, :method => :delete, :data => {:confirm => "are you sure?"} %>
   
       <%= link_to ('<i class="fa fa-pencil fa-2x"></i>').html_safe, edit_event_path(@event) %>
     </p>  
   </div>  
 </div>
-
-
 
 
  <% content_for(:js) do %>
@@ -73,4 +71,12 @@
 });
 </script>
 <% end %>
+
+<div class="row">
+  <div class="large-12 columns">
+    <%= link_to 'All Events', events_path %>
+  </div>
+</div>
+
+
 

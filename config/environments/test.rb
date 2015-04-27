@@ -33,4 +33,7 @@ Fiftyprocent::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # configure the mailer to create full URLs in emails
+  config.action_mailer.default_url_options = {host: 'localhost:3000'}
 end
