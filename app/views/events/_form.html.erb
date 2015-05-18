@@ -16,6 +16,7 @@
       <%= f.input(:name) %>
       <%= f.input(:location) %>
       <%= f.label(:date) %> <%= f.date_field(:date) %>
+      <%= f.association(:tags) %>
     </div>  
     <div class="large-6 columns">
       <%= f.input(:organizer_url) %>
